@@ -31,7 +31,7 @@ class Table extends Component {
     return (
     <div>
   <table>
-    
+
     <thead>
         <tr>
           <th>Название</th>
