@@ -18,7 +18,7 @@ class Table extends Component {
             <td>{el.left}</td>
             <td>{el.fotos.map ((el, ind)=>{
               return (
-                <img key={ind}  src={el} alt="description"></img>
+                <img key={ind}  /*src={el}*/ alt={'foto ' + ind + ' '}></img>
               )
             })}</td>
             </tr>
@@ -30,7 +30,7 @@ class Table extends Component {
   render() {
     return (
     <div>
-  <table>
+  <table className='table'>
 
     <thead>
         <tr>
@@ -49,8 +49,8 @@ class Table extends Component {
      
       
   </table>
-       <button onClick={this.checkData}>Press ME</button>
-      </div>
+      
+  </div>
   
     );
   }
