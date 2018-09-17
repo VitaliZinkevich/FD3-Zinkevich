@@ -1,30 +1,33 @@
-//Создать проект ishop (интернет-магазин) в папке ishop. 
-//Задать массивом список товаров в интернет-магазине, по каждому
-// товару должны храниться как минимум название, цена, 
-//URL фотографии, сколько единиц товара осталось на складе. 
-//Написать React-компонент, отображающий таблицу с этим списком 
-//товаров. Компонент должен получать массив товаров через props. 
-//Задать типы для props компонента. При разработке компонента 
-//максимально использовать forEach и другие методы обработки 
-//массивов.
 
+let data = [
+  {name: 'Piazza Italia',
+  price: 60,
+  fotos: ['https://a.lmcdn.ru/pi/product/P/I/PI022EMCTBA3_7299520_1_v1.jpg',
+  'https://a.lmcdn.ru/pi/product/P/I/PI022EMCTBA3_7299521_2_v1.jpg'],
+  left: 100,
+  ID: 4820024700016},
 
-     let data = [
-        {name: 'Шорты', 
-        price: 10, 
-        fotos: ['https://cdn.sptmr.ru/upload/resize_cache/iblock/664/331_394_1/11874060299.jpg',
-        'https://cdn.sptmr.ru/upload/resize_cache/iblock/443/331_394_1/12247150299.jpg'], 
-        left: 100, 
-        ID: 4820024700016},
-        
-        {name: 'Майки', 
-        price: 15, 
-        fotos: ['https://www.reebok.ru/dis/dw/image/v2/AAJP_PRD/on/demandware.static/-/Sites-reebok-products/default/dwf6036db1/zoom/CW7182_01.jpg?sw=2000',
-        'https://images.ua.prom.st/312528078_w640_h640_pesok_4.jpg'], 
-        left: 100, 
-        ID: 4820024700017},
-         
-        ];
+  {name: 'oodji',
+  price: 74,
+  fotos: ['https://a.lmcdn.ru/pi/product/O/O/OO001EMWZU47_5292699_1_v3.jpg',
+  'https://a.lmcdn.ru/pi/product/O/O/OO001EMWZU47_6044310_2_v1.jpg'],
+  left: 100,
+  ID: 4820024700017},
 
-export default { data }; 
+  {name: 'Jack & Jones ',
+  price: 119,
+  fotos: ['https://a.lmcdn.ru/pi/product/J/A/JA391EMBZMS6_7228634_2_v1.jpg',
+  'https://a.lmcdn.ru/pi/product/J/A/JA391EMBZMS6_7228633_1_v1.jpg'],
+  left: 100,
+  ID: 4820024700018},
 
+  {name: 's.Oliver ',
+  price: 114,
+  fotos: ['https://a.lmcdn.ru/pi/product/S/O/SO917EMBWNV8_7014805_1_v1.jpg',
+  'https://a.lmcdn.ru/pi/product/S/O/SO917EMBWNV8_7014806_2_v1.jpg'],
+  left: 100,
+  ID: 4820024700019},
+
+  ];
+
+export default { data };

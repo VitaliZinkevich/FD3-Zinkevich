@@ -12,52 +12,54 @@ class Table extends Component {
 
   viewItems = this.props.items.map ((el, ind)=>{
     return (
-            <tr key={el.ID}>
+            <tr key={el.ID} align="center">
+            <td>{el.ID}</td>
             <td>{el.name}</td>
-            <td>{el.price}</td>
+            <td>{el.price + ' BYN'}</td>
             <td>{el.left}</td>
             <td>{el.fotos.map ((el, ind)=>{
               return (
-                <img key={ind}  /*src={el}*/ alt={'foto ' + ind + ' '}></img>
+                <img key={ind}  src={el} alt={'foto ' + ind + ' ' } height="150" width="100"></img>
               )
             })}</td>
             </tr>
        )
-    
+
   })
-  
+
 
   render() {
     return (
     <div>
-  <table className='table'>
+  <table className='table table-striped'>
 
-    <thead>
-        <tr>
-          <th>Название</th>
-          <th>Цена</th>
-          <th>Остаток на складе</th>
-          <th>Фото</th>
+    <thead className='thead-dark'>
+        <tr align="center">
+          <th >Штрих код товара</th>
+          <th >Название</th>
+          <th >Цена</th>
+          <th >Остаток на складе</th>
+          <th >Фото</th>
         </tr>
     </thead>
-  
+
     <tbody>
           {this.viewItems}
     </tbody>
-        
-   
-     
-      
+
+
+
+
   </table>
-      
+
   </div>
-  
+
     );
   }
 }
 
 Table.propTypes = {
-  
+
   items: PropTypes.arrayOf (PropTypes.shape({
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
