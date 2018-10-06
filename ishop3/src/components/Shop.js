@@ -39,7 +39,7 @@ class Shop extends Component {
 
 
 
-      this.setState ({selectedLineID: id, selectedItem: newSelectedItem, editedItem:null})
+      this.setState ({selectedLineID: id, selectedItem: newSelectedItem, editedItem:null,addingNewItem : false})
   }
 
 
@@ -83,7 +83,7 @@ class Shop extends Component {
               }
             })
 
-        this.setState ({editedItem: eElem, selectedLineID: null, selectedItem: null })
+        this.setState ({editedItem: eElem, selectedLineID: null, selectedItem: null,  addingNewItem : false})
   }
 
   cancelEditing = () => {
@@ -110,7 +110,7 @@ class Shop extends Component {
 
   addItem= () => {
 
-    this.setState({addingNewItem: true})
+    this.setState({addingNewItem: true, editedItem: null ,selectedLineID: null, selectedItem: null})
 
   }
 
@@ -126,7 +126,7 @@ class Shop extends Component {
     item.ID=id
     
     newItems.push(item)
-    this.setState ({items: newItems,addingNewItem:false })
+    this.setState ({items: newItems, addingNewItem:false })
   }
 
   render() {
