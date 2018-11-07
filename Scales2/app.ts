@@ -2,8 +2,8 @@ import {IScalable} from "Interface";
 
 class Carrot implements IScalable {
 
-    name: string= '';
-    weigth: number = 0;
+    private name: string= '';
+    private weigth: number = 0;
     constructor (){ 
        
         this.name = 'Carrot' ;
@@ -21,8 +21,8 @@ class Carrot implements IScalable {
 }
 
 class Potato implements IScalable {
-    name: string= '';
-    weigth: number = 0;
+    private name: string= '';
+    private weigth: number = 0;
     constructor (){ 
         
         this.name = 'Potato' ;
