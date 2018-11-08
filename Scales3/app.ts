@@ -88,7 +88,7 @@ class ScalesStorageEngineLocalStorage implements IStorageEngine {
             myStorage=JSON.parse (myStorage)
 
             let classLikeProduct:Product[] = []
-
+            // add methods
             myStorage.forEach((el, index)=>{
                 const name = el.name
                 const weigth = el.weigth
@@ -100,7 +100,7 @@ class ScalesStorageEngineLocalStorage implements IStorageEngine {
         getCount():number{
             let myStorage  = this.atScale.getItem ('storage')
             myStorage=JSON.parse (myStorage)
-            console.log(myStorage)
+           
 
             // add methods
             let classLikeProduct:Product[] = []
@@ -173,7 +173,7 @@ console.log(arrStorage.getSumScale())
 console.log(arrStorage.getNameList())
 
 let storageAtLocalstorage = new Scale3(ScalesStorageEngineLocalStorage)
-console.log(arrStorage)
+console.log(storageAtLocalstorage)
 storageAtLocalstorage.add (new Product ('Tomato', 2500))
 storageAtLocalstorage.add (new Product ('Patato', 2300))
 storageAtLocalstorage.add (new Product ('Carrot', 2000))

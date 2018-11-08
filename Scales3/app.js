@@ -49,6 +49,7 @@ var ScalesStorageEngineLocalStorage = /** @class */ (function () {
         var myStorage = this.atScale.getItem('storage');
         myStorage = JSON.parse(myStorage);
         var classLikeProduct = [];
+        // add methods
         myStorage.forEach(function (el, index) {
             var name = el.name;
             var weigth = el.weigth;
@@ -59,7 +60,6 @@ var ScalesStorageEngineLocalStorage = /** @class */ (function () {
     ScalesStorageEngineLocalStorage.prototype.getCount = function () {
         var myStorage = this.atScale.getItem('storage');
         myStorage = JSON.parse(myStorage);
-        console.log(myStorage);
         // add methods
         var classLikeProduct = [];
         myStorage = myStorage.map(function (el, index) {
@@ -110,7 +110,7 @@ arrStorage.add(new Product('Carrot', 1000));
 console.log(arrStorage.getSumScale());
 console.log(arrStorage.getNameList());
 var storageAtLocalstorage = new Scale3(ScalesStorageEngineLocalStorage);
-console.log(arrStorage);
+console.log(storageAtLocalstorage);
 storageAtLocalstorage.add(new Product('Tomato', 2500));
 storageAtLocalstorage.add(new Product('Patato', 2300));
 storageAtLocalstorage.add(new Product('Carrot', 2000));
