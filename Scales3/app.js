@@ -24,11 +24,7 @@ var ScalesStorageEngineArray = /** @class */ (function () {
         return product;
     };
     ScalesStorageEngineArray.prototype.getCount = function () {
-        var total = 0;
-        this.atScale.forEach(function (el) {
-            total += el.getScale();
-        });
-        return total;
+        return this.atScale.length;
     };
     return ScalesStorageEngineArray;
 }());
@@ -60,16 +56,7 @@ var ScalesStorageEngineLocalStorage = /** @class */ (function () {
     ScalesStorageEngineLocalStorage.prototype.getCount = function () {
         var myStorage = this.atScale.getItem('storage');
         myStorage = JSON.parse(myStorage);
-        // add methods
-        var classLikeProduct = [];
-        myStorage = myStorage.map(function (el, index) {
-            var name = el.name;
-            var weigth = el.weigth;
-            classLikeProduct.push(new Product(name, weigth));
-        });
-        var total = 0;
-        classLikeProduct.forEach(function (el) { return total += el.getScale(); });
-        return total;
+        return myStorage.length;
     };
     return ScalesStorageEngineLocalStorage;
 }());
@@ -82,22 +69,29 @@ var Scale3 = /** @class */ (function () {
         this.storage.addItem(item);
     };
     Scale3.prototype.getSumScale = function () {
-        return this.storage.getCount();
+        var length = this.storage.getCount();
+        var total = 0;
+        for (var i = 0; i < length; i++) {
+            total += this.storage.getItem(i).getScale();
+        }
+        return total;
     };
     ;
     Scale3.prototype.getNameList = function () {
-        var i = 0;
+        var length = this.storage.getCount();
         var nameList = [];
-        while (i != null) {
-            var tmp = this.storage.getItem(i);
-            if (tmp) {
-                i++;
-                nameList.push(tmp.getName());
-            }
-            else {
-                i = null;
-            }
+        for (var i = 0; i < length; i++) {
+            nameList.push(this.storage.getItem(i).getName());
         }
+        // while (i!= null) {
+        //     let tmp = this.storage.getItem(i)
+        //     if (tmp){
+        //         i++
+        //         nameList.push (tmp.getName())
+        //     } else {
+        //         i=null
+        //     }
+        // }
         return nameList;
     };
     return Scale3;

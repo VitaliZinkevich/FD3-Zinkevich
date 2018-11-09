@@ -1,9 +1,3 @@
-interface IScalable {
-
-    getName():string;
-    getScale():number;
-
-}
 
 interface IStorageEngine {
     addItem(item: Product):void;
@@ -12,7 +6,7 @@ interface IStorageEngine {
 
 }
 
-class Product implements IScalable{
+class Product{
     
     private name: string;
     private weigth: number;
@@ -53,12 +47,7 @@ class ScalesStorageEngineArray implements IStorageEngine{
     }
 
     getCount():number{
-        let total = 0;
-        this.atScale.forEach (el =>{
-            total+=el.getScale()
-        })
-
-        return total;
+        return this.atScale.length;
     }
 
  }
@@ -101,18 +90,7 @@ class ScalesStorageEngineLocalStorage implements IStorageEngine {
             let myStorage  = this.atScale.getItem ('storage')
             myStorage=JSON.parse (myStorage)
            
-
-            // add methods
-            let classLikeProduct:Product[] = []
-            myStorage = myStorage.map((el, index)=>{
-                const name = el.name
-                const weigth = el.weigth
-                classLikeProduct.push(new Product(name , weigth)) 
-            })
-            let total:number = 0
-            classLikeProduct.forEach (el=>total+=el.getScale())
-
-            return total
+            return myStorage.length
         }
         
       
@@ -135,31 +113,28 @@ class Scale3<StorageEngine extends IStorageEngine> {
     }
 
     getSumScale():number {
-        return this.storage.getCount();
+
+        let length:number = this.storage.getCount()
+        let total:number = 0
+        
+        for (let i:number = 0 ; i<length; i++) {
+              total += this.storage.getItem(i).getScale()
+       }
+
+        return total
     };
 
     getNameList ():string[]{
         
-        let i:number = 0
+        let length:number = this.storage.getCount()
         let nameList:string[] = [];
-       
-        while (i!= null) {
-            let tmp = this.storage.getItem(i)
-            if (tmp){
-                i++
-                nameList.push (tmp.getName())
-            } else {
-                i=null
-            }
-        }
+
+        for (let i:number = 0 ; i<length; i++) {
+            nameList.push (this.storage.getItem(i).getName())
+     }
 
         return nameList
-        
     }
-
-
-
-
 
 }
 
