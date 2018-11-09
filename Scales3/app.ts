@@ -143,16 +143,15 @@ console.log(arrStorage)
 arrStorage.add (new Product ('Tomato', 1500))
 arrStorage.add (new Product ('Patato', 1300))
 arrStorage.add (new Product ('Carrot', 1000))
-
-console.log(arrStorage.getSumScale())
-console.log(arrStorage.getNameList())
+console.log(arrStorage.getSumScale() , ' общий вес')
+console.log(arrStorage.getNameList() , ' общий список')
 
 let storageAtLocalstorage = new Scale3(ScalesStorageEngineLocalStorage)
 console.log(storageAtLocalstorage)
-storageAtLocalstorage.add (new Product ('Tomato', 2500))
 storageAtLocalstorage.add (new Product ('Patato', 2300))
 storageAtLocalstorage.add (new Product ('Carrot', 2000))
-console.log(storageAtLocalstorage.getSumScale())
-console.log(storageAtLocalstorage.getNameList())
+storageAtLocalstorage.add (new Product ('Tomato', 2500))
+console.log(storageAtLocalstorage.getSumScale() , ' общий вес')
+console.log(storageAtLocalstorage.getNameList() , ' общий список')
 
 

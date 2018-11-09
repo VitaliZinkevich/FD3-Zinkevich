@@ -83,15 +83,6 @@ var Scale3 = /** @class */ (function () {
         for (var i = 0; i < length; i++) {
             nameList.push(this.storage.getItem(i).getName());
         }
-        // while (i!= null) {
-        //     let tmp = this.storage.getItem(i)
-        //     if (tmp){
-        //         i++
-        //         nameList.push (tmp.getName())
-        //     } else {
-        //         i=null
-        //     }
-        // }
         return nameList;
     };
     return Scale3;
@@ -101,13 +92,13 @@ console.log(arrStorage);
 arrStorage.add(new Product('Tomato', 1500));
 arrStorage.add(new Product('Patato', 1300));
 arrStorage.add(new Product('Carrot', 1000));
-console.log(arrStorage.getSumScale());
-console.log(arrStorage.getNameList());
+console.log(arrStorage.getSumScale(), ' общий вес');
+console.log(arrStorage.getNameList(), ' общий список');
 var storageAtLocalstorage = new Scale3(ScalesStorageEngineLocalStorage);
 console.log(storageAtLocalstorage);
-storageAtLocalstorage.add(new Product('Tomato', 2500));
 storageAtLocalstorage.add(new Product('Patato', 2300));
 storageAtLocalstorage.add(new Product('Carrot', 2000));
-console.log(storageAtLocalstorage.getSumScale());
-console.log(storageAtLocalstorage.getNameList());
+storageAtLocalstorage.add(new Product('Tomato', 2500));
+console.log(storageAtLocalstorage.getSumScale(), ' общий вес');
+console.log(storageAtLocalstorage.getNameList(), ' общий список');
 //# sourceMappingURL=app.js.map
