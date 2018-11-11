@@ -9,8 +9,10 @@ export class SpriteComponent {
   
   @Input('url')
   url:string
+
   @Input('offsetX')
   offsetX:number
+  
   @Input('offsetY')
   offsetY:number
   @Input('width')
@@ -19,7 +21,7 @@ export class SpriteComponent {
   height:string
 
   @Output("change-picture")
-  change:EventEmitter<void>=new EventEmitter<void>();
+  clicked:EventEmitter<void>=new EventEmitter<void>();
 
 
   getUrl () {
