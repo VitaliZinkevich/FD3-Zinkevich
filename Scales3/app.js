@@ -17,7 +17,7 @@ var ScalesStorageEngineArray = /** @class */ (function () {
     }
     ScalesStorageEngineArray.prototype.addItem = function (item) {
         this.atScale.push(item);
-        return this.atScale.indexOf(item);
+        return this.atScale.length - 1;
     };
     ScalesStorageEngineArray.prototype.getItem = function (index) {
         var product = this.atScale[index];
@@ -37,21 +37,14 @@ var ScalesStorageEngineLocalStorage = /** @class */ (function () {
         var myStorage = this.atScale.getItem('storage');
         myStorage = JSON.parse(myStorage);
         myStorage.push(item);
-        var index = myStorage.indexOf(item);
         this.atScale.setItem('storage', JSON.stringify(myStorage));
-        return index;
+        return myStorage.length - 1;
     };
     ScalesStorageEngineLocalStorage.prototype.getItem = function (index) {
         var myStorage = this.atScale.getItem('storage');
         myStorage = JSON.parse(myStorage);
-        var classLikeProduct = [];
         // add methods
-        myStorage.forEach(function (el, index) {
-            var name = el.name;
-            var weigth = el.weigth;
-            classLikeProduct.push(new Product(name, weigth));
-        });
-        return classLikeProduct[index];
+        return new Product(myStorage[index].name, myStorage[index].weigth);
     };
     ScalesStorageEngineLocalStorage.prototype.getCount = function () {
         var myStorage = this.atScale.getItem('storage');

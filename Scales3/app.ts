@@ -37,12 +37,12 @@ class ScalesStorageEngineArray implements IStorageEngine{
 
     addItem(item:Product):number{
         this.atScale.push(item);
-        return this.atScale.indexOf(item);
+        return this.atScale.length -1 ;
     }
 
     getItem(index: number):Product{
         
-        let product = this.atScale[index];
+        let product: Product = this.atScale[index];
         return product;
     }
 
@@ -65,9 +65,9 @@ class ScalesStorageEngineLocalStorage implements IStorageEngine {
             let myStorage  = this.atScale.getItem ('storage')
             myStorage=JSON.parse (myStorage);
             myStorage.push(item);
-            let index:number = myStorage.indexOf(item)
+            
             this.atScale.setItem( 'storage' , JSON.stringify(myStorage));
-            return index;
+            return myStorage.length-1;
 
         }
     
@@ -76,14 +76,10 @@ class ScalesStorageEngineLocalStorage implements IStorageEngine {
             let myStorage  = this.atScale.getItem ('storage')
             myStorage=JSON.parse (myStorage)
 
-            let classLikeProduct:Product[] = []
+            
             // add methods
-            myStorage.forEach((el, index)=>{
-                const name = el.name
-                const weigth = el.weigth
-                classLikeProduct.push(new Product(name , weigth)) 
-            })
-          return classLikeProduct[index]
+            
+          return new Product (myStorage[index].name, myStorage[index].weigth) 
         }
     
         getCount():number{
