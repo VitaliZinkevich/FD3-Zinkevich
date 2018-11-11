@@ -1,0 +1,9 @@
+.view {
+   width: 100%;
+   display: flex;
+   flex-direction:  column;
+   align-items: center;
+}
+.sprite {
+    border: 1px solid black;
+ }

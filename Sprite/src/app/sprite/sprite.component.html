@@ -1,0 +1,20 @@
+
+<div class="view">
+  <p>
+    Sprite Component
+  </p>
+  <div 
+  class="sprite" 
+  
+  [style.width]='getWidth()'
+  [style.height]='getHeight()'
+  [style.backgroundPosition]='getOffsetX()+"px "+getOffsetY()+"px"'
+  [style.backgroundImage] = '"url("+getUrl()+")"'
+   
+  (click)='change.emit()'>
+  
+
+  </div>
+
+</div>
+
