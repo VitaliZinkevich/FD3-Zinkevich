@@ -1,0 +1,8 @@
+<div>
+  
+  Введите число, количество яблок <input #apples name=apples type=text ngModel ><br>
+    
+  <div *ngIf='apples.value !== ""'>У вас {{apples.value|numword:'яблоко':'яблока':'яблок'}}</div>
+  
+</div>
+
